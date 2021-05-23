@@ -33,8 +33,7 @@ SOCKET mysock_connect (char *ip, unsigned short port)
 	struct sockaddr_in server;
     
     if((s = socket(AF_INET, SOCK_STREAM, 0)) == INVALID_SOCKET) {
-        //return -1;
-        exit (120);
+        return -1;
     }
     
     server.sin_addr.s_addr = inet_addr(ip);
@@ -43,8 +42,7 @@ SOCKET mysock_connect (char *ip, unsigned short port)
     
     if (connect(s , (struct sockaddr *)&server , sizeof(server)) < 0)
     {
-    	//return -1;
-    	exit (120);
+    	return -1;
     }
 	return s;
 }
